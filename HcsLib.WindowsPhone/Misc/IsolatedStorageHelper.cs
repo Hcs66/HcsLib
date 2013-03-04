@@ -71,9 +71,24 @@ namespace HcsLib.WindowsPhone.Msic
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //TODO: 
+            }
+        }
+
+        public static void DeleteFile(string fileName)
+        {
+            try
+            {
+                using (var file = IsolatedStorageFile.GetUserStoreForApplication())
+                {
+                    file.DeleteFile(fileName);
+                }
+            }
+            catch (Exception)
+            {
+                
             }
         }
     }
